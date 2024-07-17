@@ -1,0 +1,38 @@
+
+{% extends "base.html" %}
+
+{% block title %}Listar Incidentes{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2>Listar Incidentes</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for incidente in incidentes %}
+                <tr>
+                    <td>{{ incidente.id }}</td>
+                    <td>{{ incidente.title }}</td>
+                    <td>{{ incidente.description }}</td>
+                    <td>{{ incidente.date }}</td>
+                    <td>
+                        <a href="{% url 'incidente_detail' incidente.id %}" class="btn btn-info btn-sm">Ver</a>
+                        <a href="{% url 'incidente_edit' incidente.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'incidente_delete' incidente.id %}" class="btn btn-danger btn-sm">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
