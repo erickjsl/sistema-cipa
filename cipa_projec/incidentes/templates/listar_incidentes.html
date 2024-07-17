@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Incidentes</title>
+</head>
+<body>
+    <h1>Listar Incidentes</h1>
+    <ul>
+        {% for incidente in incidentes %}
+            <li>{{ incidente.titulo }} - {{ incidente.local }} - {{ incidente.data_hora }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

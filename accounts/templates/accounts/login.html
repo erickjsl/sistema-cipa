@@ -1,0 +1,15 @@
+
+{% extends "base_auth.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <p><a href="{% url 'password_reset' %}">Esqueci minha senha</a></p>
+    <p><a href="{% url 'register' %}">Criar uma conta</a></p>
+</div>
+{% endblock %}
